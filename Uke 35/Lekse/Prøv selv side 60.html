@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prøv selv side 60</title>
+</head>
+<body>
+
+    <script>
+
+        let hoyde = prompt("skirv inn høyde");
+        let bredde = prompt("skirv inn bredde");
+        //arealet
+        let areal = Number(hoyde) * Number(bredde);
+        // omkretsen
+        let omkrets = Number(hoyde)*2 + Number(bredde)*2;
+
+        let terning = Math.floor(Math.random()*6)+1;
+        let tall10 = Math.floor(Math.random()*10);
+        let tall20 = Math.floor(Math.random()*10)+10;
+
+        let radius = prompt("skirv inn radius");
+        let omkretsKule = Math.abs(2)*Math.PI*Math.abs(radius);
+        let volumKule = Math.abs(4)*Math.PI*Math.pow(radius,3)/Math.abs(3);
+        let arealKule = Math.abs(4)*Math.PI*Math.pow(radius,2);
+
+        let poengRiktig = prompt("Skriv inn atall rikige poeng");
+        let antallPoeng = prompt("Skriv antall ");
+        let caKarakter = Math.abs(poengRiktig)/Math.abs(antallPoeng)*Math.abs(6);
+        let karakter = Math.ceil(caKarakter);
+
+        let vekt = prompt("skriv inn din vekt i Kg");
+        let høyde = prompt("skriv inn din høyde i meter");
+        let KMI = Math.abs(vekt)/Math.pow(høyde,2);
+
+
+        document.write(`Arealet er ${areal}<br>`);
+        document.write(`Omkretsen er  ${omkrets}<br>`);
+
+            document.write(terning);
+        document.write("<br>");
+            document.write(tall10);
+        document.write("<br>");
+            document.write(tall20);
+        document.write("<br>");
+            document.write(`Omkretsen blir ${omkretsKule}`);
+        document.write("<br>");
+            document.write(`Volumet er ${volumKule}`);
+        document.write("<br>");
+            document.write(`arealet er ${arealKule}`);
+        document.write("<br>");
+            document.write(`karakteren blir ${karakter}`);
+        document.write("<br>")
+            document.write(`Din KMI er ${KMI}`);
+
+
+
+
+    </script>
+
+</body>
+</html>
