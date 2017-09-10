@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<main>
+
+    <canvas id="minCanvas" width="200" height="200"></canvas>
+
+    <script>
+
+        var minCanvas = document.getElementById("minCanvas");
+        var ctx = minCanvas.getContext("2d");
+
+        minCanvas.width = innerWidth;
+        minCanvas.height = innerHeight;
+
+        function draw() {
+
+
+            var x = Math.random()*1920;
+            var y = Math.random()*1080;
+            var r = Math.random()*100;
+
+           ctx.beginPath();
+
+            ctx.fillStyle = `hsla(${Math.random()*360}, 100%, 50%, 0.4)`;
+            ctx.arc(x, y, r, 0, Math.PI*2);
+            ctx.stroke();
+            ctx.fill();
+
+            ctx.closePath();
+
+            ctx.beginPath();
+
+            ctx.fillStyle = `hsla(${Math.random()*360}, 100%, 50%, 0.4)`;
+            ctx.arc(x+r/3, y-r/4, r/6, 0, Math.PI*180);
+            ctx.arc(x-r/3, y-r/4, r/6, 0, Math.PI*180);
+            ctx.fill();
+
+            ctx.closePath();
+
+            ctx.beginPath()
+            ctx.fillStyle = `hsla(${Math.random()*360}, 100%, 50%, 0.4)`;
+            ctx.arc(x, y+r/2, r/3, 0, Math.PI*180);
+            ctx.fill();
+            ctx.stroke();
+
+        }
+
+        setInterval(draw,1);
+
+
+    </script>
+</main>
+</body>
+</html>
