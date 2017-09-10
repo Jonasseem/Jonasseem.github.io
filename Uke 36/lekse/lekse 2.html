@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flag</title>
+    <style>
+        body{
+            background-color: rgba(82, 255, 1, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="minCanvas" height="300" width="600"></canvas>
+
+<script>
+
+    var minCanvas = document.getElementById("minCanvas");
+    var ctx = minCanvas.getContext("2d");
+
+    minCanvas.height = innerHeight;
+    minCanvas.width = innerWidth;
+
+    function flag() {
+        var x = Math.random()*1920;
+        var y = Math.random()*1080;
+
+        ctx.beginPath();
+        ctx.fillStyle= "white";
+        ctx.fillRect(x,y,250,150);
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.fillStyle="#DC143C";
+        ctx.arc(x+125,y+75,50,0,Math.PI*2);
+        ctx.fill();
+        ctx.closePath();
+
+    }
+    function flag2() {
+        var x = Math.random()*1920;
+        var y = Math.random()*1080;
+
+        ctx.beginPath();
+        ctx.fillStyle= "blue";
+        ctx.fillRect(x,y,250,150);
+        ctx.closePath();
+
+        ctx.beginPath()
+        ctx.fillStyle= "yellow";
+        ctx.fillRect(x,y+65,250, 25);
+        ctx.fillRect(x+65,y,25, 150);
+
+    }
+    setInterval(flag,100);
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
