@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prøv selv side 87</title>
+</head>
+<body>
+
+    <script>
+
+        var mobil = prompt("Hvilken mobil merke har du?");
+
+        switch (mobil.toLowerCase()) {
+
+            case "samsung":
+                document.write("Samsung lager alt fra telefoner til oppvaskmaskiner.");
+                document.body.style.backgroundColor= "blue";
+                break;
+            case "microsoft":
+                document.write("Microsoft er et amerikansk teknologi firma som er eid av Bill Gates.");
+                document.body.style.backgroundColor= "green";
+                break;
+            case "sony":
+                document.write("Sony er et japansk firma som har hovedkarter i Tokyo.");
+                document.body.style.backgroundColor= "yellow";
+                break;
+            case "apple":
+                document.write("Apple lager datamaskiner, telefoner, smart klokker og annen elektronikk.");
+                document.body.style.backgroundColor= "red";
+                break;
+            default:
+                document.write("Det merke har jeg aldri hørt om før.");
+
+        }
+
+        document.write("<br>");
+
+        var rovdyr = prompt("skriv navnet på et rovdyr");
+
+        switch (rovdyr.toLowerCase()) {
+            case "ulv":
+                document.write("Det er 33 ulv i Norge.");
+                break;
+            case "jerv":
+                document.write("Det er 343 jerv i Norge.");
+                break;
+            case "bjørn":
+                document.write("Det er 137 bjørn i Norge.");
+                break;
+            case "gaupe":
+                document.write("Det er 350 gaupe i Norge.");
+        }
+
+        document.write("<br>");
+
+        var billettPris = prompt("er du barn, ungdom, voksen eller pensjonist?");
+
+        switch (billettPris.toLowerCase()) {
+            case "barn":
+            case "pensjonist":
+                document.write("Det blir 20 Kr");
+                break;
+            case "ungdom":
+                document.write("Det blir 25 Kr");
+                break;
+            case "voksen":
+                document.write("det blir 30 Kr");
+
+        }
+
+    </script>
+
+</body>
+</html>
