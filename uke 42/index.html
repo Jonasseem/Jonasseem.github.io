@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tid</title>
+    <style>
+        body{
+            background-color: ghostwhite;
+        }
+        #klikkeBoks{
+            height: 100%;
+            width: 100%;
+            background-color: #00529b;
+            border-radius: 4%;
+            position: absolute;
+            font-size: 200%;
+            text-align: center;
+
+        }
+        #klikkeBoks2{
+            height: 100%;
+            width: 100%;
+            background-color: grey;
+            border-radius: 4%;
+            position: absolute;
+            font-size: 200%;
+            text-align: center;
+        }
+        #storDiv{
+            height: 400px;
+            width: 400px;
+            margin: 0 auto;
+            position: relative;
+        }
+        #btnReset{
+            display: block;
+            margin: 20px auto;
+        }
+        #liveTeller {
+            margin: 0 auto;
+            width: 380px;
+            height: 50px;
+            text-align: left;
+            margin-top: 5px;
+
+
+        }
+
+
+
+        table, th, tr, td {
+            margin: 0 auto;
+
+            padding-right: 15px;
+        }
+    </style>
+</head>
+<body>
+<div id="tabell">
+    <table id="tabbelen">
+        <tbody>
+        <tr>
+            <td>Forsøk</td>
+            <td>1.</td>
+            <td>2.</td>
+            <td>3.</td>
+            <td>4.</td>
+            <td>5.</td>
+            <td>Gjennomsnitt</td>
+        </tr>
+        <tr id="hoyreListe">
+            <td>Høyre</td>
+        </tr>
+        <tr id="venstreListe">
+            <td>Venstre</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<div id="storDiv">
+    <div id="klikkeBoks2"></div>
+    <div id="klikkeBoks"></div>
+</div>
+<div id="liveTeller">Klikk: </div>
+<button id="btnReset">RESET</button>
+
+
+
+
+<script>
+
+    var hoyreListe = document.getElementById("hoyreListe");
+    var venstreListe = document.getElementById("venstreListe");
+    var liveTeller = document.getElementById("liveTeller");
+
+
+    var klikkeBoks = document.getElementById("klikkeBoks");
+
+    var btnReset = document.getElementById("btnReset");
+    var antall = 0;
+    var tidenflyr = false;
+    var runde = 1;
+
+
+    var runder = [];
+
+    function stoppKlokka() {
+        tidenflyr = false;
+        klikkeBoks.style.display = "none";
+        console.log("Stopper klokka");
+        console.log(antall);
+
+        runder.push(antall);
+        console.log(runder);
+
+        setTimeout(reset, 3000  );
+
+        if (runde <= 5) {
+            hoyreListe.innerHTML += "<td>" + antall + "</td>";
+        }
+        else if (runde <= 10) {
+            venstreListe.innerHTML += "<td>" + antall + "</td>";
+        } else {
+
+        }
+    }
+
+    function startKlokka() {
+        tidenflyr = true;
+        // Stopper klokka etter 10 sekunder
+        console.log("Starter klokka");
+        setTimeout(stoppKlokka, 10000);
+    }
+
+    function tell() {
+
+        if (tidenflyr) {
+            antall++;
+
+        } else {
+            startKlokka();
+            antall++;
+        }
+        liveTeller.innerHTML ="Klikk: " + antall;
+    }
+
+    function reset() {
+        klikkeBoks.style.display = "";
+        liveTeller.innerHTML = "";
+        antall = 0; // Reset antall
+        runde++;
+
+        if(runde <= 10) {
+
+        } else {
+            klikkeBoks.style.display = "none";
+            oppsummering();
+        }
+    }
+
+    function resetAll() {
+        hoyreListe.innerHTML = "Høyre";
+        venstreListe.innerHTML = "Venstre";
+        antall = 0;
+        runde = 1;
+        klikkeBoks.style.display = "";
+        runder = [];
+
+
+    }
+
+    function oppsummering() {
+        var antallVenstre = 0;
+        var antallHoyre = 0;
+
+        for (var i=0; i<runder.length; i++){
+            if(i < 5){
+                // venstre hånd
+                antallHoyre += runder[i];
+            } else {
+                // h hånd
+                antallVenstre += runder[i];
+            }
+        }
+        var gjennomsnittVenstre = antallVenstre / 5;
+        var gjennomsnittHoyre = antallHoyre / 5;
+        hoyreListe.innerHTML += "<td>" + gjennomsnittHoyre + "</td>";
+        venstreListe.innerHTML += "<td>" + gjennomsnittVenstre + "</td>";
+    }
+
+    btnReset.onclick = resetAll;
+    klikkeBoks.onclick = tell;
+</script>
+
+
+</body>
+</html>
